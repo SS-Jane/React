@@ -6,7 +6,7 @@ export default function Item(props) {
 
   return (
     <>
-      <li className="bg-white shadow-md shadow-black/15 p-3 m-1 flex justify-between">
+      <li className="bg-white shadow-md shadow-black/15 p-3 m-1 flex justify-between border rounded-md">
         {title}
         <span>{amount} THB</span>
       </li>

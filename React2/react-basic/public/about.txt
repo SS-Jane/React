@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Gravitas One
+- Font Author: http://scripts.sil.org/OFL
+- Font Source: https://fonts.gstatic.com/s/gravitasone/v19/5h1diZ4hJ3cblKy3LWakKQmaDWRNr3DzbQ.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
