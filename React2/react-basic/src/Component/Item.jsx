@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
 
 export default function Item(props) {
   const { title, amount } = props;
@@ -14,7 +13,7 @@ export default function Item(props) {
   );
 }
 
-Item.propTypes ={
+Item.propTypes = {
   title: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired
-}
+  amount: PropTypes.number.isRequired,
+};
