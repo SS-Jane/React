@@ -7,12 +7,12 @@ import ReportComponent from "./Component/ReportComponent";
 
 function App() {
   const initState = [
-    {id:1 ,title:'Salary', amount:100000},
-    {id:2 ,title:'Gas', amount:-4000},
-    {id:3 ,title:'Food/Baverage', amount:-3000},
-    {id:4 ,title:'OT', amount:5000}
-  ]
-  const [items, setItems] = useState(initState);
+    { id: 1, title: "Salary", amount: 100000 },
+    { id: 2, title: "Gas", amount: -4000 },
+    { id: 3, title: "Food/Baverage", amount: -3000 },
+    { id: 4, title: "OT", amount: 5000 },
+  ];
+  const [items, setItems] = useState([]);
   const [reportIncome, setReportIncome] = useState(0);
   const [reportExpense, setReportExpense] = useState(0);
 
@@ -23,19 +23,22 @@ function App() {
     });
   };
 
-  useEffect(()=>{
-    const amount = items.map(items=>items.amount)
-    console.log('Obj Amount=',amount);
-    
-  },[items])
+  useEffect(() => {
+    const amount = items.map((items) => items.amount);
+    const totalIncome = amount
+      .filter((e) => e > 0)
+      .reduce((totalIncome, e) => (totalIncome += e), 0);
+    const totalExpense = amount
+      .filter((e) => e < 0)
+      .reduce((totalExpense, e) => (totalExpense += e), 0);
+
+      setReportIncome(totalIncome);
+      setReportExpense(totalExpense);
+
+  }, [items, reportIncome, reportExpense]);
 
   return (
-    <DataContext.Provider value={
-      { income: 10000, 
-      expense: -1000, 
-      balance: 9000
-      }
-      }>
+    <DataContext.Provider value={{ income: reportIncome, expense: reportExpense }}>
       <h1 className="m-5 p-5 text-center text-orange-600 text-5xl">
         Money Report
       </h1>

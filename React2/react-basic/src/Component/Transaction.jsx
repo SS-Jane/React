@@ -6,7 +6,7 @@ export default function Transaction(props) {
 
   return (
     <>
-      <div>
+      <div className="w-1/4">
         <div className="item-list list-none p-0 mb-40">
           {items.map((e) => {
             return <Item key={e.id} {...e} />;

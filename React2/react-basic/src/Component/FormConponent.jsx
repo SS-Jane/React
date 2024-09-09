@@ -34,9 +34,9 @@ export default function FormComponent(props) {
 
   return (
     <>
-      <div>
+      <div className="w-1/4">
         <form onSubmit={saveItem}>
-          <div className="form-control block m-1">
+          <div className="form-control block w-full">
             <label className="block text-sm font-medium text-slate-700 ">
               List name
             </label>
