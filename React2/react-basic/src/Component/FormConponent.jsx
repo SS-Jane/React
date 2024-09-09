@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid"; // auto generate ID
 
 export default function FormComponent(props) {
   const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("0");
-
+  const [amount, setAmount] = useState(0);
+  const [fromValid, setFormValid] = useState(false);
 
   const inputTitle = (e) => {
     setTitle(e.target.value);
@@ -17,14 +17,20 @@ export default function FormComponent(props) {
   const saveItem = (e) => {
     e.preventDefault();
     const itemData = {
-        id : uuidv4(),
+      id: uuidv4(),
       title: title,
       amount: Number(amount),
     };
     props.onAddItem(itemData);
-    setAmount("0");
+    setAmount(0);
     setTitle("");
   };
+
+  useEffect(() => {
+    const checkData = title.trim().length > 0 && Number(amount) !== 0;
+
+    setFormValid(checkData);
+  }, [amount, title]);
 
   return (
     <>
@@ -64,8 +70,9 @@ export default function FormComponent(props) {
           </div>
           <div className="block m-1">
             <button
-              className="block btn-primary w-full my-2 px-2 py-2 text-white bg-sky-500 hover:bg-sky-600 rounded-md shadow-md  shadow-black/20"
+              className="block btn-primary w-full my-2 px-2 py-2 text-white bg-sky-500 hover:bg-sky-600 rounded-md shadow-md  shadow-black/20 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
               type="summit"
+              disabled={!fromValid}
             >
               Add list
             </button>
