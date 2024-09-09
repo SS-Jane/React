@@ -17,7 +17,6 @@ function App() {
   const [reportExpense, setReportExpense] = useState(0);
 
   const onAddNewItem = (newitem) => {
-    console.log("Send from FormComponent", newitem);
     setItems((prevItem) => {
       return [newitem, ...prevItem];
     });
