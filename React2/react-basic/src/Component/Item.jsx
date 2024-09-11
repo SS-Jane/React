@@ -6,12 +6,16 @@ export default function Item(props) {
   const income ="bg-green-300 block shadow-md shadow-black/15 my-1 px-2 py-2 flex justify-between border rounded-md";
   const statusItem = amount < 0 ? expense:income;
 
+  function formatNumber(number, locale = 'en-US', options = {}) {
+    return new Intl.NumberFormat(locale, options).format(number);
+  }
+
   
   return (
     <div>
       <li className={statusItem}>
         {title}
-        <span>{amount} THB</span>
+        <span>{formatNumber(amount)} THB</span>
       </li>
     </div>
   );
