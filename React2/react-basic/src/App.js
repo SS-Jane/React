@@ -6,12 +6,7 @@ import ReportComponent from "./Component/ReportComponent";
 // import "./App.css";
 
 function App() {
-  const initState = [
-    { id: 1, title: "Salary", amount: 100000 },
-    { id: 2, title: "Gas", amount: -4000 },
-    { id: 3, title: "Food/Baverage", amount: -3000 },
-    { id: 4, title: "OT", amount: 5000 },
-  ];
+
   const [items, setItems] = useState([]);
   const [reportIncome, setReportIncome] = useState(0);
   const [reportExpense, setReportExpense] = useState(0);
